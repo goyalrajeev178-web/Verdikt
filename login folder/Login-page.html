@@ -91,7 +91,64 @@
         </div>
     
     </div>
-        </div>
+      <!--Form-->
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="you@university.edu"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                class="toggle-password"
+              >
+                <i data-lucide="eye" id="eye-icon" class="icon-small"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <label class="remember-me">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <button type="button" class="forgot-password">
+              Forgot password?
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="submit-btn"
+          >
+            <span id="btn-text" class="btn-text-content">
+              Sign In
+              <i data-lucide="arrow-right" class="icon-small"></i>
+            </span>
+            <div id="loader" class="loader hidden"></div>
+          </button>
+        </form>
+
+        <p class="security-text">
+          Protected by Verdikt Anti-Cheat System
+        </p>
+
+      </div>
+    </div>
     </div>
 </body>
 </html>
