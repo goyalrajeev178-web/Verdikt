@@ -1,64 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verdikt — Student Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verdikt — Student Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
 </head>
+
 <body>
 
-<div class="app-layout">
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-logo">
-  <div class="logo-icon">
-    <i data-lucide="terminal" class="icon-void icon-sm"></i>
-  </div>
-  <span class="logo-text sidebar-label">Verdikt</span>
-</div>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="main-area">
+                    <header class="top-header">
+                        <div>
+                            <h1 class="header-title">Dashboard</h1>
+                            <p class="header-subtitle">Your assignments and progress</p>
+                        </div>
 
-<nav class="sidebar-nav">
-  <a href="#dashboard" class="nav-item active" data-page="dashboard">
-    <i data-lucide="layout-dashboard" class="nav-icon"></i>
-    <span class="sidebar-label">Dashboard</span>
-  </a>
+                        <div class="header-right">
+                            <div class="search-wrap">
+                                <i data-lucide="search" class="search-icon"></i>
+                                <input type="text" placeholder="Search..." class="search-input" />
+                            </div>
 
-  <a href="#assignments" class="nav-item" data-page="assignments">
-    <i data-lucide="book-open" class="nav-icon"></i>
-    <span class="sidebar-label">Assignments</span>
-  </a>
+                            <button class="notif-btn">
+                                <i data-lucide="bell" class="icon-mist icon-sm"></i>
+                                <span class="notif-badge">3</span>
+                            </button>
 
-  <a href="#editor" class="nav-item" data-page="editor">
-    <i data-lucide="terminal" class="nav-icon"></i>
-    <span class="sidebar-label">Code Editor</span>
-  </a>
+                            <div class="avatar-group">
+                                <div class="avatar-circle">A</div>
+                                <div class="avatar-info">
+                                    <p class="avatar-name">Alex Rivera</p>
+                                    <p class="avatar-role">student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="logo-icon">
+                    <i data-lucide="terminal" class="icon-void icon-sm"></i>
+                </div>
+                <span class="logo-text sidebar-label">Verdikt</span>
+            </div>
 
-  <a href="#history" class="nav-item" data-page="history">
-    <i data-lucide="history" class="nav-icon"></i>
-    <span class="sidebar-label">My Submissions</span>
-  </a>
-</nav>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                    <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                    <span class="sidebar-label">Dashboard</span>
+                </a>
 
-<div class="sidebar-footer">
-  <div class="user-info sidebar-label" id="user-info">
-    <p class="user-name">Alex Rivera</p>
-    <p class="user-role">student</p>
-  </div>
+                <a href="#assignments" class="nav-item" data-page="assignments">
+                    <i data-lucide="book-open" class="nav-icon"></i>
+                    <span class="sidebar-label">Assignments</span>
+                </a>
 
-  <button class="logout-btn">
-    <i data-lucide="log-out" class="nav-icon"></i>
-    <span class="sidebar-label">Sign Out</span>
-  </button>
+                <a href="#editor" class="nav-item" data-page="editor">
+                    <i data-lucide="terminal" class="nav-icon"></i>
+                    <span class="sidebar-label">Code Editor</span>
+                </a>
 
-  <button class="collapse-btn" id="collapse-btn">
-    <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
-  </button>
-</div>
-</aside>
-</div>
+                <a href="#history" class="nav-item" data-page="history">
+                    <i data-lucide="history" class="nav-icon"></i>
+                    <span class="sidebar-label">My Submissions</span>
+                </a>
+            </nav>
 
-<script src="script.js"></script>
+            <div class="sidebar-footer">
+                <div class="user-info sidebar-label" id="user-info">
+                    <p class="user-name">Alex Rivera</p>
+                    <p class="user-role">student</p>
+                </div>
+
+                <button class="logout-btn">
+                    <i data-lucide="log-out" class="nav-icon"></i>
+                    <span class="sidebar-label">Sign Out</span>
+                </button>
+
+                <button class="collapse-btn" id="collapse-btn">
+                    <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
