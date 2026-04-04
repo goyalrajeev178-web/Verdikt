@@ -294,3 +294,124 @@ a { text-decoration: none; color: inherit; }
 @media (min-width: 1024px) { .avatar-info { display: block; } }
 .avatar-name { font-size: 0.875rem; font-weight: 500; color: var(--color-frost); line-height: 1; }
 .avatar-role { font-size: 0.75rem; color: var(--color-mist); text-transform: capitalize; margin-top: 0.125rem; }
+/* ── Content ─────────────────────────────────────────────── */
+.content {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content.hidden { display: none; }
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.overflow-hidden { overflow: hidden; }
+
+/* ── Dashboard Top Row ───────────────────────────────────── */
+.dash-top-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .dash-top-row { grid-template-columns: 1fr; }
+}
+
+/* ── Gauge Panel ─────────────────────────────────────────── */
+.gauge-panel { padding: 2rem; }
+
+.gauge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.gauge-container { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+
+.gauge-svg { transform: rotate(-90deg); overflow: visible; }
+
+.gauge-bg {
+  fill: none;
+  stroke: var(--color-layer-hover);
+  stroke-width: 14;
+  stroke-dasharray: calc(3.14159 * 64) calc(3.14159 * 64 * 2);
+  stroke-dashoffset: calc(3.14159 * 64);
+  stroke-linecap: round;
+}
+
+.gauge-fg {
+  fill: none;
+  stroke-width: 14;
+  stroke-dasharray: calc(3.14159 * 64) calc(3.14159 * 64 * 2);
+  stroke-linecap: round;
+  stroke-dashoffset: calc(3.14159 * 64 * (1 - var(--pct, 0) / 100));
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.gauge-label-wrap { display: flex; flex-direction: column; align-items: center; }
+
+.gauge-value { font-size: 1.5rem; font-weight: 700; color: var(--color-teal); font-family: 'Geist Mono', monospace; letter-spacing: -0.04em; }
+.gauge-desc  { font-size: 0.8rem; color: var(--color-mist); margin-top: 0.25rem; }
+
+/* ── Metric Cards ────────────────────────────────────────── */
+.metric-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.metric-card {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.metric-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-color: var(--color-border-strong); }
+
+.metric-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+
+.metric-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teal-icon    { background: var(--color-teal-glow); }
+.amber-icon   { background: var(--color-amber-glow); }
+.emerald-icon { background: var(--color-emerald-glow); }
+.crimson-icon { background: var(--color-crimson-glow); }
+
+.metric-trend {
+  display: flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: 'Geist Mono', monospace;
+  gap: 0.125rem;
+}
+
+.metric-trend.up   { color: var(--color-emerald); }
+.metric-trend.down { color: var(--color-crimson); }
+
+.metric-num {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-frost);
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.metric-denom { font-size: 1.125rem; color: var(--color-mist); font-weight: 400; margin-left: 0.25rem; }
+.metric-label { font-size: 0.8125rem; font-weight: 500; color: var(--color-mist); }
