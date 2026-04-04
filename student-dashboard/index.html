@@ -151,6 +151,48 @@
           <div id="closed-assignments-list" class="asgn-list asgn-list-closed"></div>
         </div>
       </main>
+      <!-- ════ PAGE: Code Editor ════ -->
+      <main class="content hidden no-pad" id="page-editor">
+        <!-- Editor Top Bar -->
+        <div class="editor-topbar">
+          <div class="editor-topbar-left">
+            <span class="editor-title" id="editor-assignment-title">Binary Search Implementation</span>
+            <div class="lang-selector-wrap">
+              <button class="lang-selector-btn" id="lang-selector-btn">
+                <span id="current-lang">python</span>
+                <i data-lucide="chevron-down" class="icon-xs icon-mist"></i>
+              </button>
+              <div class="lang-dropdown hidden" id="lang-dropdown"></div>
+            </div>
+          </div>
+          <div class="editor-topbar-right">
+            <div class="timer-badge" id="timer-badge">
+              <i data-lucide="clock" class="icon-xs"></i>
+              <span id="timer-display">45:00</span>
+            </div>
+            <div class="integrity-badge" id="integrity-badge">
+              <span class="integrity-dot" id="integrity-dot"></span>
+              <i data-lucide="shield" class="icon-xs"></i>
+              <span id="flag-count"></span>
+            </div>
+            <button class="editor-icon-btn" id="theme-toggle-btn" title="Toggle Theme">
+              <i data-lucide="sun" id="theme-icon" class="icon-xs"></i>
+            </button>
+            <button class="editor-icon-btn" id="desc-toggle-btn" title="Toggle Description">
+              <i data-lucide="eye-off" class="icon-xs"></i>
+            </button>
+            <button class="editor-icon-btn" id="reset-btn" title="Reset Code">
+              <i data-lucide="rotate-ccw" class="icon-xs"></i>
+            </button>
+            <button class="run-btn" id="run-btn">
+              <i data-lucide="play" class="icon-xs"></i> Run
+            </button>
+            <button class="submit-btn-editor" id="submit-editor-btn">
+              <i data-lucide="send" class="icon-xs"></i> Submit
+            </button>
+          </div>
+        </div>
+      </main>
 
             </div>
             <div class="logo-icon">
