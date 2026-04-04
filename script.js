@@ -7,25 +7,70 @@ const mockAssignments = [
 ];
 
 const mockSubmissions = [
-  { id: 'sub-001', assignmentId: 'asgn-001', studentName: 'Alex Rivera',      language: 'python',     status: 'passed',  score: 95,  plagiarismScore: 8,  timeSpentMinutes: 22, behaviorFlags: [] },
-  { id: 'sub-002', assignmentId: 'asgn-001', studentName: 'Maya Patel',       language: 'javascript', status: 'passed',  score: 100, plagiarismScore: 5,  timeSpentMinutes: 18, behaviorFlags: [] },
-  { id: 'sub-003', assignmentId: 'asgn-001', studentName: 'James Okonkwo',    language: 'python',     status: 'flagged', score: 90,  plagiarismScore: 72, timeSpentMinutes: 8,  behaviorFlags: ['f1','f2','f3','f4'] },
-  { id: 'sub-004', assignmentId: 'asgn-001', studentName: 'Lina Zhang',       language: 'java',       status: 'passed',  score: 100, plagiarismScore: 12, timeSpentMinutes: 35, behaviorFlags: ['f5'] },
-  { id: 'sub-005', assignmentId: 'asgn-001', studentName: 'Ethan Kowalski',   language: 'cpp',        status: 'flagged', score: 85,  plagiarismScore: 65, timeSpentMinutes: 12, behaviorFlags: ['f1','f2','f3'] },
-  { id: 'sub-006', assignmentId: 'asgn-002', studentName: 'Alex Rivera',      language: 'python',     status: 'passed',  score: 100, plagiarismScore: 3,  timeSpentMinutes: 15, behaviorFlags: [] },
-  { id: 'sub-007', assignmentId: 'asgn-003', studentName: 'Priya Sharma',     language: 'python',     status: 'passed',  score: 100, plagiarismScore: 2,  timeSpentMinutes: 10, behaviorFlags: [] },
-  { id: 'sub-008', assignmentId: 'asgn-003', studentName: 'Daniel Kim',       language: 'javascript', status: 'flagged', score: 75,  plagiarismScore: 58, timeSpentMinutes: 6,  behaviorFlags: ['f1','f2'] },
-  { id: 'sub-009', assignmentId: 'asgn-001', studentName: 'Amara Osei',       language: 'python',     status: 'failed',  score: 25,  plagiarismScore: 15, timeSpentMinutes: 40, behaviorFlags: ['f6'] },
-  { id: 'sub-010', assignmentId: 'asgn-002', studentName: 'Lucas Fernandez',  language: 'javascript', status: 'pending', score: 0,   plagiarismScore: 0,  timeSpentMinutes: 25, behaviorFlags: [] },
+  { id: 'sub-001', assignmentId: 'asgn-001', studentName: 'Vinay garg',      language: 'python',     status: 'passed',  score: 95,  plagiarismScore: 8,  timeSpentMinutes: 22, behaviorFlags: [] },
+  { id: 'sub-002', assignmentId: 'asgn-001', studentName: 'Rajeev k goyal',       language: 'javascript', status: 'passed',  score: 100, plagiarismScore: 5,  timeSpentMinutes: 18, behaviorFlags: [] },
+  { id: 'sub-003', assignmentId: 'asgn-001', studentName: 'Yash k gupta',    language: 'python',     status: 'flagged', score: 90,  plagiarismScore: 72, timeSpentMinutes: 8,  behaviorFlags: ['f1','f2','f3','f4'] },
+  { id: 'sub-004', assignmentId: 'asgn-001', studentName: 'Dogesh',       language: 'java',       status: 'passed',  score: 100, plagiarismScore: 12, timeSpentMinutes: 35, behaviorFlags: ['f5'] },
+  { id: 'sub-005', assignmentId: 'asgn-001', studentName: 'Yash k sahu',   language: 'cpp',        status: 'flagged', score: 85,  plagiarismScore: 65, timeSpentMinutes: 12, behaviorFlags: ['f1','f2','f3'] },
+  { id: 'sub-006', assignmentId: 'asgn-002', studentName: 'Tanmay',      language: 'python',     status: 'passed',  score: 100, plagiarismScore: 3,  timeSpentMinutes: 15, behaviorFlags: [] },
+  { id: 'sub-007', assignmentId: 'asgn-003', studentName: 'vibha',     language: 'python',     status: 'passed',  score: 100, plagiarismScore: 2,  timeSpentMinutes: 10, behaviorFlags: [] },
+  { id: 'sub-008', assignmentId: 'asgn-003', studentName: 'sapna',       language: 'javascript', status: 'flagged', score: 75,  plagiarismScore: 58, timeSpentMinutes: 6,  behaviorFlags: ['f1','f2'] },
+  { id: 'sub-009', assignmentId: 'asgn-001', studentName: 'Vikas',       language: 'python',     status: 'failed',  score: 25,  plagiarismScore: 15, timeSpentMinutes: 40, behaviorFlags: ['f6'] },
+  { id: 'sub-010', assignmentId: 'asgn-002', studentName: 'Utkarsh',  language: 'javascript', status: 'pending', score: 0,   plagiarismScore: 0,  timeSpentMinutes: 25, behaviorFlags: [] },
 ];
 
 const mockPlagiarismLogs = [
-  { id: 'plog-001', submissionId: 'sub-003', studentName: 'James Okonkwo',   assignmentTitle: 'Binary Search Implementation', flags: [ {type:'tab_switch'},{type:'copy_paste'},{type:'typing_anomaly'},{type:'rapid_paste'} ], overallRisk: 'critical', detectedAt: '2026-04-01T16:50:00Z' },
-  { id: 'plog-002', submissionId: 'sub-005', studentName: 'Ethan Kowalski',  assignmentTitle: 'Binary Search Implementation', flags: [ {type:'tab_switch'},{type:'copy_paste'},{type:'typing_anomaly'} ],                  overallRisk: 'high',     detectedAt: '2026-04-01T18:10:00Z' },
-  { id: 'plog-003', submissionId: 'sub-008', studentName: 'Daniel Kim',      assignmentTitle: 'FizzBuzz with Twist',          flags: [ {type:'tab_switch'},{type:'copy_paste'} ],                                          overallRisk: 'high',     detectedAt: '2026-04-01T13:35:00Z' },
-  { id: 'plog-004', submissionId: 'sub-004', studentName: 'Lina Zhang',      assignmentTitle: 'Binary Search Implementation', flags: [ {type:'right_click'} ],                                                             overallRisk: 'low',      detectedAt: '2026-04-01T17:25:00Z' },
+  {
+    id: 'plog-001',
+    submissionId: 'sub-003',
+    studentName: 'Yash k gupta',
+    assignmentTitle: 'Assignment 1',
+    flags: [
+      { type: 'tab_switch' },
+      { type: 'copy_paste' },
+      { type: 'typing_anomaly' },
+      { type: 'rapid_paste' }
+    ],
+    overallRisk: 'critical',
+    detectedAt: '2026-04-01T16:50:00Z'
+  },
+  {
+    id: 'plog-002',
+    submissionId: 'sub-005',
+    studentName: 'Yash k sahu',
+    assignmentTitle: 'Assignment 1',
+    flags: [
+      { type: 'tab_switch' },
+      { type: 'copy_paste' },
+      { type: 'typing_anomaly' }
+    ],
+    overallRisk: 'high',
+    detectedAt: '2026-04-01T18:10:00Z'
+  },
+  {
+    id: 'plog-003',
+    submissionId: 'sub-008',
+    studentName: 'sapna',
+    assignmentTitle: 'Assignment 3',
+    flags: [
+      { type: 'tab_switch' },
+      { type: 'copy_paste' }
+    ],
+    overallRisk: 'high',
+    detectedAt: '2026-04-01T13:35:00Z'
+  },
+  {
+    id: 'plog-004',
+    submissionId: 'sub-004',
+    studentName: 'Dogesh',
+    assignmentTitle: 'Assignment 1',
+    flags: [
+      { type: 'right_click' }
+    ],
+    overallRisk: 'low',
+    detectedAt: '2026-04-01T17:25:00Z'
+  }
 ];
-
 const submissionTrend = [
   { date: '03/27', count: 8 }, { date: '03/28', count: 15 }, { date: '03/29', count: 12 },
   { date: '03/30', count: 22 },{ date: '03/31', count: 18 }, { date: '04/01', count: 30 },
