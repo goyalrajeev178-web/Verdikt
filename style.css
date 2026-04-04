@@ -815,3 +815,285 @@ a { text-decoration: none; color: inherit; }
 .risk-bar-bg { width: 3rem; height: 0.375rem; border-radius: 9999px; background: var(--color-layer); overflow: hidden; }
 .risk-bar-fill { height: 100%; border-radius: 9999px; }
 .risk-num { font-size: 0.6875rem; font-family: 'Geist Mono', monospace; color: var(--color-mist); }
+/* ── Placeholder ─────────────────────────────────────────── */
+.placeholder-page { justify-content: center; align-items: center; }
+
+.placeholder { text-align: center; color: var(--color-mist); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.placeholder-icon { width: 3rem; height: 3rem; color: rgba(100,116,139,0.3); }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Back Button ─────────────────────────────────────────── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--color-mist);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  transition: color 0.15s;
+  font-family: inherit;
+}
+
+.back-btn:hover { color: var(--color-frost); }
+.back-btn i { width: 0.875rem; height: 0.875rem; }
+
+/* ── Create Assignment Form ──────────────────────────────── */
+.create-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.create-step-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.create-step-btn.current { background: var(--color-teal);     color: #fff; }
+.create-step-btn.done    { background: var(--color-teal-glow); color: var(--color-teal); }
+.create-step-btn.future  { background: var(--color-layer);     color: var(--color-mist); }
+
+.step-num {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-family: 'Geist Mono', monospace;
+}
+
+.step-divider { width: 2rem; height: 1px; background: var(--color-border); }
+
+.create-step { display: flex; flex-direction: column; gap: 1.5rem; max-width: 48rem; }
+.create-step.hidden { display: none; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.375rem; }
+
+.form-label { font-size: 0.875rem; font-weight: 500; color: var(--color-frost); }
+
+.form-input {
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  color: var(--color-frost);
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.form-input:focus { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 2px var(--color-teal-glow); }
+.form-input::placeholder { color: var(--color-mist); }
+
+.form-textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  color: var(--color-frost);
+  font-family: inherit;
+  resize: vertical;
+  line-height: 1.65;
+  transition: all 0.2s;
+}
+
+.form-textarea:focus { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 2px var(--color-teal-glow); }
+.form-textarea::placeholder { color: var(--color-mist); }
+
+.create-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 720px) { .create-grid-3 { grid-template-columns: 1fr; } }
+
+.lang-toggle-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.lang-toggle {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  background: var(--color-layer);
+  color: var(--color-mist);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.lang-toggle:hover  { color: var(--color-frost); }
+.lang-toggle.active { background: var(--color-teal-glow); border-color: var(--color-teal); color: var(--color-teal); }
+
+.create-actions { display: flex; align-items: center; justify-content: space-between; padding-top: 0.5rem; }
+
+.create-next-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--color-teal);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.create-next-btn:hover { background: var(--color-teal-hover); }
+
+.create-back-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  color: var(--color-mist);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.15s;
+  font-family: inherit;
+}
+
+.create-back-btn:hover { color: var(--color-frost); }
+
+.create-draft-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  color: var(--color-frost);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.create-draft-btn:hover { background: var(--color-layer-hover); }
+
+.create-publish-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--color-teal);
+  border: none;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.create-publish-btn:hover { background: var(--color-teal-hover); }
+
+.form-section-header { display: flex; align-items: flex-start; justify-content: space-between; }
+.form-section-title { font-size: 0.9375rem; font-weight: 600; color: var(--color-frost); }
+.form-section-sub   { font-size: 0.8125rem; color: var(--color-mist); margin-top: 0.25rem; }
+
+.create-add-tc-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-teal-glow);
+  border: 1px solid rgba(6,182,212,0.3);
+  color: var(--color-teal);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.create-add-tc-btn:hover { background: rgba(6,182,212,0.2); }
+
+.tc-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 0.875rem;
+}
+
+.tc-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.tc-card-title  { font-size: 0.875rem; font-weight: 500; color: var(--color-frost); font-family: 'Geist Mono', monospace; }
+.tc-card-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+.tc-vis-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.tc-vis-btn.visible { background: var(--color-layer); color: var(--color-mist); }
+.tc-vis-btn.hidden-tc { background: var(--color-amber-glow); color: var(--color-amber); }
+
+.tc-remove-btn {
+  padding: 0.375rem;
+  border-radius: 0.375rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-mist);
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+.tc-remove-btn:hover { color: var(--color-crimson); background: var(--color-crimson-glow); }
+.tc-remove-btn i { width: 1rem; height: 1rem; }
+
+.tc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 640px) { .tc-grid { grid-template-columns: 1fr; } }
+
+.tc-input-label { font-size: 0.75rem; font-weight: 500; color: var(--color-mist); margin-bottom: 0.375rem; }
+
+.tc-textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  font-family: 'Geist Mono', monospace;
+  color: var(--color-frost);
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.tc-textarea:focus { outline: none; border-color: var(--color-teal); }
+.tc-textarea::placeholder { color: var(--color-mist); }
