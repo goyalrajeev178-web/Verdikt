@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verdikt — Teacher Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <i data-lucide="terminal" class="icon-void icon-sm"></i>
+        </div>
+        <span class="logo-text sidebar-label">Verdikt</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard">
+          <i data-lucide="layout-dashboard" class="nav-icon"></i>
+          <span class="sidebar-label">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="assignments">
+          <i data-lucide="file-code-2" class="nav-icon"></i>
+          <span class="sidebar-label">Assignments</span>
+        </a>
+        <a href="#" class="nav-item" data-page="create">
+          <i data-lucide="plus-circle" class="nav-icon"></i>
+          <span class="sidebar-label">Create New</span>
+        </a>
+        <a href="#" class="nav-item" data-page="plagiarism">
+          <i data-lucide="shield" class="nav-icon"></i>
+          <span class="sidebar-label">Plagiarism Logs</span>
+        </a>
+        <a href="#" class="nav-item" data-page="submissions">
+          <i data-lucide="clipboard-list" class="nav-icon"></i>
+          <span class="sidebar-label">Submissions</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info sidebar-label">
+          <p class="user-name">Ms. Charul Bapna</p>
+          <p class="user-role">Teacher</p>
+        </div>
+        <button class="logout-btn" onclick="alert('Logging out...')">
+          <i data-lucide="log-out" class="nav-icon"></i>
+          <span class="sidebar-label">Sign Out</span>
+        </button>
+        <button class="collapse-btn" id="collapse-btn" title="Toggle sidebar">
+          <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
+        </button>
+      </div>
+    </aside>
+
+      <div class="main-area">
+
+      <!-- Header -->
+      <header class="top-header">
+        <div>
+          <h1 class="header-title" id="header-title">Dashboard</h1>
+          <p class="header-subtitle" id="header-subtitle">Overview of your assignments and submissions</p>
+        </div>
+        <div class="header-right">
+          <div class="search-wrap">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" placeholder="Search..." class="search-input" />
+          </div>
+          <button class="notif-btn">
+            <i data-lucide="bell" class="icon-mist icon-sm"></i>
+            <span class="notif-badge">3</span>
+          </button>
+          <div class="avatar-group">
+            <div class="avatar-circle">CB</div>
+            <div class="avatar-info">
+              <p class="avatar-name">Ms. Charul Bapna</p>
+              <p class="avatar-role">teacher</p>
+            </div>
+          </div>
+        </div>
+      </header>
+       <!-- ════ PAGE: Dashboard ════ -->
+      <main class="content" id="page-dashboard">
+
+        <!-- Top Row: Gauges + Metric Cards -->
+        <div class="dash-top-row">
+
+          <!-- Speedometer Gauges -->
+          <div class="card gauge-panel">
+            <div class="gauge-wrap">
+              <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 160 160" width="150" height="150">
+                  <defs>
+                    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#06B6D4" />
+                      <stop offset="100%" stop-color="#0891B2" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                  <circle class="gauge-fg" cx="80" cy="80" r="64" stroke="url(#tealGrad)" style="--pct: 78.4;" />
+                  <circle cx="80" cy="80" r="5" fill="#06B6D4" />
+                </svg>
+                <div class="gauge-label-wrap">
+                  <span class="gauge-value">78.4%</span>
+                  <span class="gauge-desc">Average Score</span>
+                </div>
+              </div>
+              <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 160 160" width="150" height="150">
+                  <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                  <circle class="gauge-fg" cx="80" cy="80" r="64" stroke="#10B981" style="--pct: 60;" />
+                  <circle cx="80" cy="80" r="5" fill="#10B981" />
+                </svg>
+                <div class="gauge-label-wrap">
+                  <span class="gauge-value" style="color:#10B981;">60%</span>
+                  <span class="gauge-desc">Active Ratio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+ <!-- Metric Cards -->
+          <div class="metric-cards-grid">
+            <div class="card metric-card">
+              <div class="metric-top-row">
+                <div class="metric-icon teal-icon"><i data-lucide="file-code-2" class="icon-teal icon-md"></i></div>
+                <span class="metric-trend up"><i data-lucide="arrow-up-right" class="icon-xs"></i>+2</span>
+              </div>
+              <p class="metric-num">3<span class="metric-denom">/5</span></p>
+              <p class="metric-label">Active Assignments</p>
+            </div>
+            <div class="card metric-card">
+              <div class="metric-top-row">
+                <div class="metric-icon teal-icon"><i data-lucide="clipboard-list" class="icon-teal icon-md"></i></div>
+                <span class="metric-trend up"><i data-lucide="arrow-up-right" class="icon-xs"></i>+14</span>
+              </div>
+              <p class="metric-num">87</p>
+              <p class="metric-label">Total Submissions</p>
+            </div>
+            <div class="card metric-card">
+              <div class="metric-top-row">
+                <div class="metric-icon amber-icon"><i data-lucide="clock" class="icon-amber icon-md"></i></div>
+                <span class="metric-trend down"><i data-lucide="arrow-down-right" class="icon-xs"></i>3 new</span>
+              </div>
+              <p class="metric-num">12</p>
+              <p class="metric-label">Pending Reviews</p>
+            </div>
+            <div class="card metric-card">
+              <div class="metric-top-row">
+                <div class="metric-icon crimson-icon"><i data-lucide="shield" class="icon-crimson icon-md"></i></div>
+                <span class="metric-trend down"><i data-lucide="arrow-down-right" class="icon-xs"></i>+2</span>
+              </div>
+              <p class="metric-num">9</p>
+              <p class="metric-label">Flagged</p>
+            </div>
+          </div>
+        </div>
+         <!-- Charts Row -->
+        <div class="charts-row">
+          <!-- Submission Trend -->
+          <div class="card chart-card">
+            <h3 class="chart-title">Submission Trend</h3>
+            <p class="chart-sub">Last 7 days</p>
+            <div class="bar-chart-wrap" id="trend-chart"></div>
+          </div>
+          <!-- Language Distribution -->
+          <div class="card chart-card">
+            <h3 class="chart-title">Languages Used</h3>
+            <p class="chart-sub">By submissions</p>
+            <div id="lang-chart" class="lang-chart"></div>
+          </div>
+        </div>
+  <!-- Bottom Row -->
+        <div class="bottom-row">
+          <!-- Recent Assignments -->
+          <div class="card overflow-hidden">
+            <div class="panel-header">
+              <h3 class="panel-title">Recent Assignments</h3>
+              <span class="panel-meta">5 total</span>
+            </div>
+            <div id="recent-assignments-list"></div>
+          </div>
+          <!-- Plagiarism Alerts -->
+          <div class="card overflow-hidden">
+            <div class="panel-header">
+              <h3 class="panel-title alert-title">
+                <i data-lucide="alert-triangle" class="icon-crimson icon-sm"></i>
+                Plagiarism Alerts
+              </h3>
+              <span class="alert-badge" id="alert-count">4 flagged</span>
+            </div>
+            <div id="plagiarism-alerts-list"></div>
+          </div>
+        </div>
+
+      </main>
+        <!-- ════ PAGE: Assignments ════ -->
+      <main class="content hidden" id="page-assignments">
+        <div class="page-action-bar">
+          <p class="page-meta-text">5 assignments total</p>
+          <button class="action-btn" onclick="alert('Navigate to Create page')">
+            <i data-lucide="plus" class="icon-sm"></i> New Assignment
+          </button>
+        </div>
+        <div class="assignments-grid" id="assignments-grid"></div>
+      </main>
+ <!-- ════ PAGE: Plagiarism Logs ════ -->
+      <main class="content hidden" id="page-plagiarism">
+        <!-- Summary Cards -->
+        <div class="plag-summary-cards" id="plag-summary"></div>
+        <!-- Filters -->
+        <div class="filter-bar" id="plag-filters">
+          <i data-lucide="filter" class="filter-icon"></i>
+          <!-- buttons rendered by JS -->
+        </div>
+        <!-- Table -->
+        <div class="card overflow-hidden">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Assignment</th>
+                <th>Risk Level</th>
+                <th>Flags</th>
+                <th>Flag Types</th>
+                <th>Detected</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="plag-table-body"></tbody>
+          </table>
+        </div>
+      </main>
+        <!-- ════ PAGE: Submissions ════ -->
+      <main class="content hidden" id="page-submissions">
+        <div class="filter-bar" id="sub-filters">
+          <i data-lucide="filter" class="filter-icon"></i>
+        </div>
+        <div class="card overflow-hidden">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Assignment</th>
+                <th>Lang</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Risk</th>
+                <th>Time</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="sub-table-body"></tbody>
+          </table>
+        </div>
+      </main>
+         <!-- ════ PAGE: Create Assignment ════ -->
+      <main class="content hidden" id="page-create">
+        <!-- Step Indicator -->
+        <div class="create-steps" id="create-steps">
+          <!-- rendered by JS -->
+        </div>
+
+        <!-- Step 1: Details -->
+        <div class="create-step" id="create-step-1">
+          <div class="form-group">
+            <label class="form-label">Assignment Title</label>
+            <input type="text" id="create-title" class="form-input" placeholder="e.g., Binary Search Implementation" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="create-desc" class="form-textarea" rows="8" placeholder="Describe the problem statement, requirements, and constraints..."></textarea>
+          </div>
+          <div class="create-actions">
+            <span></span>
+            <button class="create-next-btn" onclick="createGoStep(2)">Next: Languages &amp; Limits</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Languages & Limits -->
+        <div class="create-step hidden" id="create-step-2">
+          <div class="form-group">
+            <label class="form-label">Allowed Languages</label>
+            <div class="lang-toggle-group" id="lang-toggles"></div>
+          </div>
+          <div class="create-grid-3">
+            <div class="form-group">
+              <label class="form-label">Time Limit (min)</label>
+              <input type="number" id="create-timelimit" class="form-input" value="45" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Max Attempts</label>
+              <input type="number" id="create-maxattempts" class="form-input" value="3" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Deadline</label>
+              <input type="datetime-local" id="create-deadline" class="form-input" />
+            </div>
+          </div>
+          <div class="create-actions">
+            <button class="create-back-btn" onclick="createGoStep(1)">Back</button>
+            <button class="create-next-btn" onclick="createGoStep(3)">Next: Test Cases</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Test Cases -->
+        <div class="create-step hidden" id="create-step-3">
+          <div class="form-section-header">
+            <div>
+              <h3 class="form-section-title">Test Cases</h3>
+              <p class="form-section-sub">Define input/output pairs for automated grading</p>
+            </div>
+            <button class="create-add-tc-btn" onclick="addTestCase()">
+              <i data-lucide="plus" class="icon-xs"></i> Add Test Case
+            </button>
+          </div>
+          <div id="test-cases-list"></div>
+          <div class="create-actions">
+            <button class="create-back-btn" onclick="createGoStep(2)">Back</button>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="create-draft-btn" onclick="saveAssignment('draft')">
+                <i data-lucide="save" class="icon-xs"></i> Save Draft
+              </button>
+              <button class="create-publish-btn" onclick="saveAssignment('active')">
+                <i data-lucide="rocket" class="icon-xs"></i> Publish
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+        <!-- ════ PAGE: Assignment Detail ════ -->
+      <main class="content hidden" id="page-asgn-detail">
+        <button class="back-btn" onclick="showPage('assignments')">
+          <i data-lucide="arrow-left" class="icon-xs"></i> Back to Assignments
+        </button>
+        <!-- Info Card -->
+        <div class="card detail-info-card" id="detail-info"></div>
+        <!-- Submissions Table -->
+        <div class="card overflow-hidden">
+          <div class="panel-header">
+            <h3 class="panel-title">Submissions</h3>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Language</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Plagiarism</th>
+                <th>Time</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody id="detail-sub-table"></tbody>
+          </table>
+        </div>
+      </main>
+      
+      <!-- ════ PAGE: Submission Review ════ -->
+      <main class="content hidden" id="page-sub-review">
+        <button class="back-btn" onclick="showPage('submissions')">
+          <i data-lucide="arrow-left" class="icon-xs"></i> Back
+        </button>
+        <div class="review-grid">
+          <!-- Code Panel -->
+          <div class="card overflow-hidden review-code-card">
+            <div class="review-code-header">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <span class="review-code-title">Submitted Code</span>
+                <span class="review-lang-tag" id="review-lang-tag">python</span>
+              </div>
+              <button class="icon-btn" onclick="navigator.clipboard?.writeText(document.getElementById('review-code-pre').textContent)">
+                <i data-lucide="copy"></i> Copy
+              </button>
+            </div>
+            <div class="review-code-wrap">
+              <div class="review-line-nums" id="review-line-nums"></div>
+              <pre class="review-code-pre" id="review-code-pre"></pre>
+            </div>
+          </div>
+
+          <!-- Right Sidebar -->
+          <div class="review-sidebar">
+            <!-- Score -->
+            <div class="card review-card">
+              <h3 class="review-card-title">Results</h3>
+              <div id="review-score-section"></div>
+            </div>
+            <!-- Test Results -->
+            <div class="card review-card">
+              <h3 class="review-card-title">
+                <i data-lucide="eye" class="icon-xs icon-teal"></i> Test Results
+              </h3>
+              <div id="review-test-results"></div>
+            </div>
+            <!-- Integrity Score -->
+            <div class="card review-card">
+              <h3 class="review-card-title">
+                <i data-lucide="shield" class="icon-xs" id="review-shield-icon"></i> Integrity Score
+              </h3>
+              <div id="review-integrity"></div>
+            </div>
+            <!-- Behavior Flags -->
+            <div class="card review-card" id="review-flags-card" style="display:none;border-color:rgba(239,68,68,0.2);">
+              <h3 class="review-card-title">
+                <i data-lucide="alert-triangle" class="icon-xs icon-crimson"></i>
+                Behavior Flags (<span id="review-flag-count">0</span>)
+              </h3>
+              <div id="review-flags-list"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+ </div><!-- /main-area -->
+  </div><!-- /app-layout -->
+
+  <script src="script.js"></script>
+</body>
+</html>
