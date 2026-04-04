@@ -17,306 +17,321 @@
         <aside class="sidebar" id="sidebar">
             <!-- Logo -->
             <div class="sidebar-logo">
-        <div class="logo-icon">
-          <i data-lucide="terminal" class="icon-void icon-sm"></i>
-        </div>
-        <span class="logo-text sidebar-label">Verdikt</span>
-      </div>
-
-
-      <!-- Navigation -->
-      <nav class="sidebar-nav">
-        <a href="#dashboard" class="nav-item active" data-page="dashboard">
-          <i data-lucide="layout-dashboard" class="nav-icon"></i>
-          <span class="sidebar-label">Dashboard</span>
-        </a>
-        <a href="#assignments" class="nav-item" data-page="assignments">
-          <i data-lucide="book-open" class="nav-icon"></i>
-          <span class="sidebar-label">Assignments</span>
-        </a>
-        <a href="#editor" class="nav-item" data-page="editor">
-          <i data-lucide="terminal" class="nav-icon"></i>
-          <span class="sidebar-label">Code Editor</span>
-        </a>
-        <a href="#history" class="nav-item" data-page="history">
-          <i data-lucide="history" class="nav-icon"></i>
-          <span class="sidebar-label">My Submissions</span>
-        </a>
-      </nav>
-
-                <div class="main-area">
-                    <header class="top-header">
-                        <div>
-                            <h1 class="header-title">Dashboard</h1>
-                            <p class="header-subtitle">Your assignments and progress</p>
-                        </div>
-
-                        <div class="header-right">
-                            <div class="search-wrap">
-                                <i data-lucide="search" class="search-icon"></i>
-                                <input type="text" placeholder="Search..." class="search-input" />
-                            </div>
-
-                            <button class="notif-btn">
-                                <i data-lucide="bell" class="icon-mist icon-sm"></i>
-                                <span class="notif-badge">3</span>
-                            </button>
-
-                            <div class="avatar-group">
-                                <div class="avatar-circle">A</div>
-                                <div class="avatar-info">
-                                    <p class="avatar-name">Alex Rivera</p>
-                                    <p class="avatar-role">student</p>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-                    <main class="content" id="page-dashboard">
-                        <div class="top-row">
-                            <!-- Speedometer Gauges -->
-                            <div class="gauge-panel card">
-                                <div class="gauge-wrap">
-                                    <div class="gauge-container">
-                                        <svg class="gauge-svg" viewBox="0 0 160 160" width="160" height="160">
-                                            <defs>
-                                                <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                    <stop offset="0%" stop-color="#06B6D4" />
-                                                    <stop offset="100%" stop-color="#0891B2" />
-                                                </linearGradient>
-                                            </defs>
-                                            <!-- Background arc -->
-                                            <circle class="gauge-bg" cx="80" cy="80" r="64" />
-                                            <!-- Foreground arc -->
-                                            <circle class="gauge-fg gauge-score" cx="80" cy="80" r="64"
-                                                stroke="url(#tealGrad)" style="--pct: 91.7;" />
-                                            <!-- Needle -->
-                                            <line class="gauge-needle" id="needle-score" x1="80" y1="80" x2="80" y2="24"
-                                                style="--rot: -90deg;" />
-                                            <circle cx="80" cy="80" r="5" fill="#06B6D4" />
-                                        </svg>
-                                        <div class="gauge-label-wrap">
-                                            <span class="gauge-value" id="score-value">91.7%</span>
-                                            <span class="gauge-desc">Average Score</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="gauge-container">
-                                        <svg class="gauge-svg" viewBox="0 0 160 160" width="160" height="160">
-                                            <!-- Background arc -->
-                                            <circle class="gauge-bg" cx="80" cy="80" r="64" />
-                                            <!-- Foreground arc -->
-                                            <circle class="gauge-fg gauge-completion" cx="80" cy="80" r="64"
-                                                stroke="#10B981" style="--pct: 75;" />
-                                            <!-- Needle -->
-                                            <circle cx="80" cy="80" r="5" fill="#10B981" />
-                                        </svg>
-                                        <div class="gauge-label-wrap">
-                                            <span class="gauge-value" style="color:#10B981;">75%</span>
-                                            <span class="gauge-desc">Completion Rate</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Metric Cards -->
-                            <div class="metric-cards">
-                                <div class="card metric-card">
-                                    <div class="metric-icon amber-icon">
-                                        <i data-lucide="calendar" class="icon-amber icon-md"></i>
-                                    </div>
-                                    <p class="metric-num">2</p>
-                                    <p class="metric-label">Upcoming</p>
-                                </div>
-                                <div class="card metric-card">
-                                    <div class="metric-icon teal-icon">
-                                        <i data-lucide="book-open" class="icon-teal icon-md"></i>
-                                    </div>
-                                    <p class="metric-num">4</p>
-                                    <p class="metric-label">Attempted</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-row">
-                            <!-- Active Assignments -->
-                            <div class="card assignments-panel">
-                                <div class="panel-header">
-                                    <h3 class="panel-title">Active Assignments</h3>
-                                    <span class="panel-meta">3 active</span>
-                                </div>
-                                <div class="panel-list" id="assignments-list">
-                                    <!-- Generated by JS -->
-                                </div>
-                            </div>
-                            <!-- Recent Submissions -->
-                            <div class="card submissions-panel">
-                                <div class="panel-header">
-                                    <h3 class="panel-title">Recent Submissions</h3>
-                                    <a href="#history" class="view-all-link" data-page="history">View all</a>
-                                </div>
-                                <div class="panel-list" id="recent-submissions-list">
-                                    <!-- Generated by JS -->
-                                </div>
-                            </div>
-                        </div>
-                    </main>
-                    <!-- Submission History Page -->
-                    <main class="content hidden" id="page-history">
-                        <div class="history-header">
-                            <h2 class="section-title">Submission History</h2>
-                            <p class="section-subtitle">Your past attempts and grades</p>
-                        </div>
-                        <div id="history-list" class="history-list">
-                            <!-- Generated by JS -->
-                        </div>
-                    </main>
-                    <!-- ════ PAGE: Assignments ════ -->
-                    <main class="content hidden" id="page-assignments">
-                        <div class="asgn-section">
-                            <h3 class="asgn-section-title"><span class="dot dot-active"></span> Active (<span
-                                    id="active-count">0</span>)</h3>
-                            <div id="active-assignments-list" class="asgn-list"></div>
-                        </div>
-                        <div class="asgn-section" id="closed-section">
-                            <h3 class="asgn-section-title"><span class="dot dot-closed"></span> Closed (<span
-                                    id="closed-count">0</span>)</h3>
-                            <div id="closed-assignments-list" class="asgn-list asgn-list-closed"></div>
-                        </div>
-                    </main>
-                    <!-- ════ PAGE: Code Editor ════ -->
-                    <main class="content hidden no-pad" id="page-editor">
-                        <!-- Editor Top Bar -->
-                        <div class="editor-topbar">
-                            <div class="editor-topbar-left">
-                                <span class="editor-title" id="editor-assignment-title">Binary Search
-                                    Implementation</span>
-                                <div class="lang-selector-wrap">
-                                    <button class="lang-selector-btn" id="lang-selector-btn">
-                                        <span id="current-lang">python</span>
-                                        <i data-lucide="chevron-down" class="icon-xs icon-mist"></i>
-                                    </button>
-                                    <div class="lang-dropdown hidden" id="lang-dropdown"></div>
-                                </div>
-                            </div>
-                            <div class="editor-topbar-right">
-                                <div class="timer-badge" id="timer-badge">
-                                    <i data-lucide="clock" class="icon-xs"></i>
-                                    <span id="timer-display">45:00</span>
-                                </div>
-                                <div class="integrity-badge" id="integrity-badge">
-                                    <span class="integrity-dot" id="integrity-dot"></span>
-                                    <i data-lucide="shield" class="icon-xs"></i>
-                                    <span id="flag-count"></span>
-                                </div>
-                                <button class="editor-icon-btn" id="theme-toggle-btn" title="Toggle Theme">
-                                    <i data-lucide="sun" id="theme-icon" class="icon-xs"></i>
-                                </button>
-                                <button class="editor-icon-btn" id="desc-toggle-btn" title="Toggle Description">
-                                    <i data-lucide="eye-off" class="icon-xs"></i>
-                                </button>
-                                <button class="editor-icon-btn" id="reset-btn" title="Reset Code">
-                                    <i data-lucide="rotate-ccw" class="icon-xs"></i>
-                                </button>
-                                <button class="run-btn" id="run-btn">
-                                    <i data-lucide="play" class="icon-xs"></i> Run
-                                </button>
-                                <button class="submit-btn-editor" id="submit-editor-btn">
-                                    <i data-lucide="send" class="icon-xs"></i> Submit
-                                </button>
-                            </div>
-                        </div>
-
-
-                        <!-- Editor Body -->
-                        <div class="editor-body">
-                            <!-- Description Panel -->
-                            <div class="desc-panel" id="desc-panel">
-                                <h3 class="desc-title" id="desc-title">Problem</h3>
-                                <p class="desc-text" id="desc-text">Loading...</p>
-                                <div class="desc-section">
-                                    <h4 class="desc-sub">Constraints</h4>
-                                    <p class="desc-meta" id="desc-constraints"></p>
-                                </div>
-                                <div class="desc-section">
-                                    <h4 class="desc-sub">Sample Test Cases</h4>
-                                    <div id="desc-testcases"></div>
-                                </div>
-                            </div>
-                            <!-- Code + Output -->
-                            <div class="editor-right">
-                                <div class="monaco-wrap" id="monaco-container"></div>
-                                <div class="output-panel">
-                                    <div class="output-header">
-                                        <span class="output-label">Output</span>
-                                        <div class="output-stats hidden" id="output-stats">
-                                            <span class="stat-pass" id="stat-pass">0 passed</span>
-                                            <span class="stat-sep">/</span>
-                                            <span class="stat-fail" id="stat-fail">0 failed</span>
-                                        </div>
-                                    </div>
-                                    <div class="output-body" id="output-body">
-                                        <pre class="output-pre"
-                                            id="output-pre">Click "Run" to test your code, or "Submit" to submit your solution.</pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Integrity Status Bar -->
-                        <div class="integrity-bar" id="integrity-bar">
-                            <span class="integrity-bar-dot" id="bar-dot"></span>
-                            Integrity Monitor: <strong id="bar-status">CLEAN</strong>
-                            <span class="bar-sep">|</span> Tab: <span id="bar-tabs">0</span>
-                            <span class="bar-sep">|</span> Paste: <span id="bar-paste">0</span>
-                            <span class="bar-sep">|</span> Flags: <span id="bar-flags">0</span>
-                        </div>
-                    </main>
-
-
-                </div>
                 <div class="logo-icon">
                     <i data-lucide="terminal" class="icon-void icon-sm"></i>
                 </div>
                 <span class="logo-text sidebar-label">Verdikt</span>
             </div>
 
+
+            <!-- Navigation -->
             <nav class="sidebar-nav">
                 <a href="#dashboard" class="nav-item active" data-page="dashboard">
                     <i data-lucide="layout-dashboard" class="nav-icon"></i>
                     <span class="sidebar-label">Dashboard</span>
                 </a>
-
                 <a href="#assignments" class="nav-item" data-page="assignments">
                     <i data-lucide="book-open" class="nav-icon"></i>
                     <span class="sidebar-label">Assignments</span>
                 </a>
-
                 <a href="#editor" class="nav-item" data-page="editor">
                     <i data-lucide="terminal" class="nav-icon"></i>
                     <span class="sidebar-label">Code Editor</span>
                 </a>
-
                 <a href="#history" class="nav-item" data-page="history">
                     <i data-lucide="history" class="nav-icon"></i>
                     <span class="sidebar-label">My Submissions</span>
                 </a>
             </nav>
-
+            <!-- User & Collapse -->
             <div class="sidebar-footer">
                 <div class="user-info sidebar-label" id="user-info">
                     <p class="user-name">Alex Rivera</p>
                     <p class="user-role">student</p>
                 </div>
-
-                <button class="logout-btn">
+                <button class="logout-btn" onclick="alert('Logging out...')">
                     <i data-lucide="log-out" class="nav-icon"></i>
                     <span class="sidebar-label">Sign Out</span>
                 </button>
-
-                <button class="collapse-btn" id="collapse-btn">
+                <button class="collapse-btn" id="collapse-btn" title="Toggle sidebar">
                     <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
                 </button>
             </div>
         </aside>
+        
+        <div class="main-area">
+            <header class="top-header">
+                <div>
+                    <h1 class="header-title">Dashboard</h1>
+                    <p class="header-subtitle">Your assignments and progress</p>
+                </div>
+
+                <div class="header-right">
+                    <div class="search-wrap">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" placeholder="Search..." class="search-input" />
+                    </div>
+
+                    <button class="notif-btn">
+                        <i data-lucide="bell" class="icon-mist icon-sm"></i>
+                        <span class="notif-badge">3</span>
+                    </button>
+
+                    <div class="avatar-group">
+                        <div class="avatar-circle">A</div>
+                        <div class="avatar-info">
+                            <p class="avatar-name">Alex Rivera</p>
+                            <p class="avatar-role">student</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="content" id="page-dashboard">
+                <div class="top-row">
+                    <!-- Speedometer Gauges -->
+                    <div class="gauge-panel card">
+                        <div class="gauge-wrap">
+                            <div class="gauge-container">
+                                <svg class="gauge-svg" viewBox="0 0 160 160" width="160" height="160">
+                                    <defs>
+                                        <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#06B6D4" />
+                                            <stop offset="100%" stop-color="#0891B2" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Background arc -->
+                                    <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                                    <!-- Foreground arc -->
+                                    <circle class="gauge-fg gauge-score" cx="80" cy="80" r="64" stroke="url(#tealGrad)"
+                                        style="--pct: 91.7;" />
+                                    <!-- Needle -->
+                                    <line class="gauge-needle" id="needle-score" x1="80" y1="80" x2="80" y2="24"
+                                        style="--rot: -90deg;" />
+                                    <circle cx="80" cy="80" r="5" fill="#06B6D4" />
+                                </svg>
+                                <div class="gauge-label-wrap">
+                                    <span class="gauge-value" id="score-value">91.7%</span>
+                                    <span class="gauge-desc">Average Score</span>
+                                </div>
+                            </div>
+
+                            <div class="gauge-container">
+                                <svg class="gauge-svg" viewBox="0 0 160 160" width="160" height="160">
+                                    <!-- Background arc -->
+                                    <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                                    <!-- Foreground arc -->
+                                    <circle class="gauge-fg gauge-completion" cx="80" cy="80" r="64" stroke="#10B981"
+                                        style="--pct: 75;" />
+                                    <!-- Needle -->
+                                    <circle cx="80" cy="80" r="5" fill="#10B981" />
+                                </svg>
+                                <div class="gauge-label-wrap">
+                                    <span class="gauge-value" style="color:#10B981;">75%</span>
+                                    <span class="gauge-desc">Completion Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metric Cards -->
+                    <div class="metric-cards">
+                        <div class="card metric-card">
+                            <div class="metric-icon amber-icon">
+                                <i data-lucide="calendar" class="icon-amber icon-md"></i>
+                            </div>
+                            <p class="metric-num">2</p>
+                            <p class="metric-label">Upcoming</p>
+                        </div>
+                        <div class="card metric-card">
+                            <div class="metric-icon teal-icon">
+                                <i data-lucide="book-open" class="icon-teal icon-md"></i>
+                            </div>
+                            <p class="metric-num">4</p>
+                            <p class="metric-label">Attempted</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <!-- Active Assignments -->
+                    <div class="card assignments-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Active Assignments</h3>
+                            <span class="panel-meta">3 active</span>
+                        </div>
+                        <div class="panel-list" id="assignments-list">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                    <!-- Recent Submissions -->
+                    <div class="card submissions-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Recent Submissions</h3>
+                            <a href="#history" class="view-all-link" data-page="history">View all</a>
+                        </div>
+                        <div class="panel-list" id="recent-submissions-list">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Submission History Page -->
+            <main class="content hidden" id="page-history">
+                <div class="history-header">
+                    <h2 class="section-title">Submission History</h2>
+                    <p class="section-subtitle">Your past attempts and grades</p>
+                </div>
+                <div id="history-list" class="history-list">
+                    <!-- Generated by JS -->
+                </div>
+            </main>
+            <!-- ════ PAGE: Assignments ════ -->
+            <main class="content hidden" id="page-assignments">
+                <div class="asgn-section">
+                    <h3 class="asgn-section-title"><span class="dot dot-active"></span> Active (<span
+                            id="active-count">0</span>)</h3>
+                    <div id="active-assignments-list" class="asgn-list"></div>
+                </div>
+                <div class="asgn-section" id="closed-section">
+                    <h3 class="asgn-section-title"><span class="dot dot-closed"></span> Closed (<span
+                            id="closed-count">0</span>)</h3>
+                    <div id="closed-assignments-list" class="asgn-list asgn-list-closed"></div>
+                </div>
+            </main>
+            <!-- ════ PAGE: Code Editor ════ -->
+            <main class="content hidden no-pad" id="page-editor">
+                <!-- Editor Top Bar -->
+                <div class="editor-topbar">
+                    <div class="editor-topbar-left">
+                        <span class="editor-title" id="editor-assignment-title">Binary Search
+                            Implementation</span>
+                        <div class="lang-selector-wrap">
+                            <button class="lang-selector-btn" id="lang-selector-btn">
+                                <span id="current-lang">python</span>
+                                <i data-lucide="chevron-down" class="icon-xs icon-mist"></i>
+                            </button>
+                            <div class="lang-dropdown hidden" id="lang-dropdown"></div>
+                        </div>
+                    </div>
+                    <div class="editor-topbar-right">
+                        <div class="timer-badge" id="timer-badge">
+                            <i data-lucide="clock" class="icon-xs"></i>
+                            <span id="timer-display">45:00</span>
+                        </div>
+                        <div class="integrity-badge" id="integrity-badge">
+                            <span class="integrity-dot" id="integrity-dot"></span>
+                            <i data-lucide="shield" class="icon-xs"></i>
+                            <span id="flag-count"></span>
+                        </div>
+                        <button class="editor-icon-btn" id="theme-toggle-btn" title="Toggle Theme">
+                            <i data-lucide="sun" id="theme-icon" class="icon-xs"></i>
+                        </button>
+                        <button class="editor-icon-btn" id="desc-toggle-btn" title="Toggle Description">
+                            <i data-lucide="eye-off" class="icon-xs"></i>
+                        </button>
+                        <button class="editor-icon-btn" id="reset-btn" title="Reset Code">
+                            <i data-lucide="rotate-ccw" class="icon-xs"></i>
+                        </button>
+                        <button class="run-btn" id="run-btn">
+                            <i data-lucide="play" class="icon-xs"></i> Run
+                        </button>
+                        <button class="submit-btn-editor" id="submit-editor-btn">
+                            <i data-lucide="send" class="icon-xs"></i> Submit
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Editor Body -->
+                <div class="editor-body">
+                    <!-- Description Panel -->
+                    <div class="desc-panel" id="desc-panel">
+                        <h3 class="desc-title" id="desc-title">Problem</h3>
+                        <p class="desc-text" id="desc-text">Loading...</p>
+                        <div class="desc-section">
+                            <h4 class="desc-sub">Constraints</h4>
+                            <p class="desc-meta" id="desc-constraints"></p>
+                        </div>
+                        <div class="desc-section">
+                            <h4 class="desc-sub">Sample Test Cases</h4>
+                            <div id="desc-testcases"></div>
+                        </div>
+                    </div>
+                    <!-- Code + Output -->
+                    <div class="editor-right">
+                        <div class="monaco-wrap" id="monaco-container"></div>
+                        <div class="output-panel">
+                            <div class="output-header">
+                                <span class="output-label">Output</span>
+                                <div class="output-stats hidden" id="output-stats">
+                                    <span class="stat-pass" id="stat-pass">0 passed</span>
+                                    <span class="stat-sep">/</span>
+                                    <span class="stat-fail" id="stat-fail">0 failed</span>
+                                </div>
+                            </div>
+                            <div class="output-body" id="output-body">
+                                <pre class="output-pre"
+                                    id="output-pre">Click "Run" to test your code, or "Submit" to submit your solution.</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrity Status Bar -->
+                <div class="integrity-bar" id="integrity-bar">
+                    <span class="integrity-bar-dot" id="bar-dot"></span>
+                    Integrity Monitor: <strong id="bar-status">CLEAN</strong>
+                    <span class="bar-sep">|</span> Tab: <span id="bar-tabs">0</span>
+                    <span class="bar-sep">|</span> Paste: <span id="bar-paste">0</span>
+                    <span class="bar-sep">|</span> Flags: <span id="bar-flags">0</span>
+                </div>
+            </main>
+
+
+        </div>
+        <div class="logo-icon">
+            <i data-lucide="terminal" class="icon-void icon-sm"></i>
+        </div>
+        <span class="logo-text sidebar-label">Verdikt</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span class="sidebar-label">Dashboard</span>
+        </a>
+
+        <a href="#assignments" class="nav-item" data-page="assignments">
+            <i data-lucide="book-open" class="nav-icon"></i>
+            <span class="sidebar-label">Assignments</span>
+        </a>
+
+        <a href="#editor" class="nav-item" data-page="editor">
+            <i data-lucide="terminal" class="nav-icon"></i>
+            <span class="sidebar-label">Code Editor</span>
+        </a>
+
+        <a href="#history" class="nav-item" data-page="history">
+            <i data-lucide="history" class="nav-icon"></i>
+            <span class="sidebar-label">My Submissions</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-info sidebar-label" id="user-info">
+            <p class="user-name">Alex Rivera</p>
+            <p class="user-role">student</p>
+        </div>
+
+        <button class="logout-btn">
+            <i data-lucide="log-out" class="nav-icon"></i>
+            <span class="sidebar-label">Sign Out</span>
+        </button>
+
+        <button class="collapse-btn" id="collapse-btn">
+            <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
+        </button>
+    </div>
+    </aside>
     </div>
 
     <script src="script.js"></script>
