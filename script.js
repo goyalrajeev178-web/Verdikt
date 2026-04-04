@@ -94,3 +94,41 @@ const flagTypeLabels = {
   idle_period:    'Idle Period',
 };
 
+function scoreClass(score) {
+  if (score >= 80) return 'color: var(--color-emerald)';
+  if (score >= 50) return 'color: var(--color-amber)';
+  return 'color: var(--color-crimson)';
+}
+
+function assignmentTitle(id) {
+  const a = mockAssignments.find(x => x.id === id);
+  return a ? a.title : id;
+}
+
+function statusBadgeHTML(status) {
+  const map = { passed: 'check-circle', failed: 'x-circle', flagged: 'shield', pending: 'clock' };
+  return `<span class="status-badge badge-${status}">
+    <i data-lucide="${map[status] || 'help-circle'}"></i> ${status}
+  </span>`;
+}
+
+function riskBadgeHTML(risk) {
+  return <span class="status-badge badge-${risk}">${risk}</span>;
+}
+
+// â”€â”€ Render: Submission Trend Chart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+function renderTrendChart() {
+  const max = Math.max(...submissionTrend.map(d => d.count));
+  document.getElementById('trend-chart').innerHTML = submissionTrend.map(d => {
+    const pct = (d.count / max) * 100;
+    return `
+      <div class="bar-item">
+        <span class="bar-count">${d.count}</span>
+        <div class="bar-fill" style="height:${pct}%;"></div>
+        <span class="bar-label">${d.date}</span>
+      </div>
+    `;
+  }).join('');
+}
+
