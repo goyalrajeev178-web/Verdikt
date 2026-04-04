@@ -132,3 +132,169 @@ function renderTrendChart() {
   }).join('');
 }
 
+// ───────── Render: Language Chart ─────────
+
+function renderLangChart() {
+  const max = Math.max(...languageDistribution.map(d => d.count));
+
+  document.getElementById('lang-chart').innerHTML =
+    languageDistribution.map(d => `
+      <div class="lang-row">
+        <span class="lang-name">${d.language}</span>
+        <div class="lang-bar-bg">
+          <div class="lang-bar-fill"
+               style="width:${(d.count / max) * 100}%; background:${d.color};">
+          </div>
+        </div>
+        <span class="lang-count">${d.count}</span>
+      </div>
+    `).join('');
+}
+
+
+// ───────── Render: Recent Assignments (Dashboard) ─────────
+
+function renderRecentAssignmentsDash() {
+  const el = document.getElementById('recent-assignments-list');
+
+  el.innerHTML = mockAssignments.slice(0, 4).map(a => {
+    const dotClass =
+      a.status === 'active' ? 'dot-active' :
+      a.status === 'draft' ? 'dot-draft' : 'dot-closed';
+
+    const pillClass =
+      a.status === 'active' ? 'pill-active' :
+      a.status === 'draft' ? 'pill-draft' : 'pill-closed';
+
+    return `
+      <div class="list-row">
+        <div class="list-row-left">
+          <div class="status-dot ${dotClass}"></div>
+          <div>
+            <p class="row-title">${a.title}</p>
+            <p class="row-meta">
+              ${a.languages.join(', ')} — ${a.totalSubmissions} submissions
+            </p>
+          </div>
+        </div>
+        <span class="status-pill ${pillClass}">${a.status}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+
+// ───────── Render: Plagiarism Alerts (Dashboard) ─────────
+
+function renderPlagiarismAlertsDash() {
+  const el = document.getElementById('plagiarism-alerts-list');
+
+  el.innerHTML = mockPlagiarismLogs.slice(0, 4).map(log => {
+    const iconClass =
+      log.overallRisk === 'critical' ? 'risk-critical' :
+      log.overallRisk === 'high' ? 'risk-high' :
+      log.overallRisk === 'medium' ? 'risk-medium' :
+      'risk-low';
+
+    const badgeClass = `badge-${log.overallRisk}`;
+
+    return `
+      <div class="plag-row">
+        <div class="list-row-left">
+          <div class="plag-icon ${iconClass}">
+            <i data-lucide="shield" class="icon-sm"></i>
+          </div>
+          <div>
+            <p class="plag-name">${log.studentName}</p>
+            <p class="plag-assignment">${log.assignmentTitle}</p>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <span class="status-badge ${badgeClass}">
+            ${log.overallRisk}
+          </span>
+          <p class="plag-flag-count">
+            ${log.flags.length} flags detected
+          </p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('alert-count').textContent =
+    `${mockPlagiarismLogs.length} flagged`;
+
+  lucide.createIcons();
+}
+
+
+// ───────── Render: Assignments Page ─────────
+
+function renderAssignmentsPage() {
+  const el = document.getElementById('assignments-grid');
+
+  el.innerHTML = mockAssignments.map((a, i) => {
+    const isPast = new Date(a.deadline) < new Date();
+
+    const iconBg =
+      a.status === 'active' ? 'background:var(--color-teal-glow)' :
+      a.status === 'draft' ? 'background:var(--color-amber-glow)' :
+      'background:var(--color-layer)';
+
+    const iconColor =
+      a.status === 'active' ? 'var(--color-teal)' :
+      a.status === 'draft' ? 'var(--color-amber)' :
+      'var(--color-mist)';
+
+    const pillClass =
+      a.status === 'active' ? 'pill-active' :
+      a.status === 'draft' ? 'pill-draft' : 'pill-closed';
+
+    const deadlineStr = isPast
+      ? 'Closed'
+      : new Date(a.deadline).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric'
+        });
+
+    const deadlineColor = isPast ? 'color:var(--color-crimson)' : '';
+
+    return `
+      <div class="asgn-card"
+           style="animation-delay:${i * 0.05}s;"
+           onclick="openAssignmentDetail('${a.id}')">
+
+        <div class="asgn-card-top">
+          <div class="asgn-icon" style="${iconBg}">
+            <i data-lucide="file-code-2"
+               style="color:${iconColor}; width:1.25rem; height:1.25rem;">
+            </i>
+          </div>
+          <span class="status-pill ${pillClass}">${a.status}</span>
+        </div>
+
+        <h3 class="asgn-title">${a.title}</h3>
+        <p class="asgn-desc">${a.description}</p>
+
+        <div class="lang-tags">
+          ${a.languages.map(l => `<span class="lang-tag">${l}</span>`).join('')}
+        </div>
+
+        <div class="asgn-footer">
+          <span><i data-lucide="users"></i> ${a.totalSubmissions}</span>
+
+          <span style="${a.flaggedSubmissions > 0 ? 'color:var(--color-crimson)' : ''}">
+            <i data-lucide="shield"></i> ${a.flaggedSubmissions} flagged
+          </span>
+
+          <span style="${deadlineColor}">
+            <i data-lucide="clock"></i> ${deadlineStr}
+          </span>
+        </div>
+
+      </div>
+    `;
+  }).join('');
+
+  lucide.createIcons();
+}
