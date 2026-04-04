@@ -331,3 +331,31 @@
           </div>
         </div>
       </main>
+        <!-- ════ PAGE: Assignment Detail ════ -->
+      <main class="content hidden" id="page-asgn-detail">
+        <button class="back-btn" onclick="showPage('assignments')">
+          <i data-lucide="arrow-left" class="icon-xs"></i> Back to Assignments
+        </button>
+        <!-- Info Card -->
+        <div class="card detail-info-card" id="detail-info"></div>
+        <!-- Submissions Table -->
+        <div class="card overflow-hidden">
+          <div class="panel-header">
+            <h3 class="panel-title">Submissions</h3>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Language</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Plagiarism</th>
+                <th>Time</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody id="detail-sub-table"></tbody>
+          </table>
+        </div>
+      </main>
