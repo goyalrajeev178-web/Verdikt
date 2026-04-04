@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // ── Success → redirect ────────────────────────────────────────────
             if (currentRole === 'teacher') {
-                window.location.href = '../teacher-dashboard.html';
+                window.location.href = '../teacher-dashboard/index.html';
             } else {
                 window.location.href = '../student-dashboard/index.html';
             }
