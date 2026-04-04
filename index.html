@@ -83,3 +83,42 @@
           </div>
         </div>
       </header>
+       <!-- ════ PAGE: Dashboard ════ -->
+      <main class="content" id="page-dashboard">
+
+        <!-- Top Row: Gauges + Metric Cards -->
+        <div class="dash-top-row">
+
+          <!-- Speedometer Gauges -->
+          <div class="card gauge-panel">
+            <div class="gauge-wrap">
+              <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 160 160" width="150" height="150">
+                  <defs>
+                    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#06B6D4" />
+                      <stop offset="100%" stop-color="#0891B2" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                  <circle class="gauge-fg" cx="80" cy="80" r="64" stroke="url(#tealGrad)" style="--pct: 78.4;" />
+                  <circle cx="80" cy="80" r="5" fill="#06B6D4" />
+                </svg>
+                <div class="gauge-label-wrap">
+                  <span class="gauge-value">78.4%</span>
+                  <span class="gauge-desc">Average Score</span>
+                </div>
+              </div>
+              <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 160 160" width="150" height="150">
+                  <circle class="gauge-bg" cx="80" cy="80" r="64" />
+                  <circle class="gauge-fg" cx="80" cy="80" r="64" stroke="#10B981" style="--pct: 60;" />
+                  <circle cx="80" cy="80" r="5" fill="#10B981" />
+                </svg>
+                <div class="gauge-label-wrap">
+                  <span class="gauge-value" style="color:#10B981;">60%</span>
+                  <span class="gauge-desc">Active Ratio</span>
+                </div>
+              </div>
+            </div>
+          </div>
