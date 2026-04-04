@@ -1,0 +1,27 @@
+/* ── Design Tokens ──────────────────────────────────────── */
+:root {
+  --color-void:          #F8FAFC;
+  --color-panel:         #FFFFFF;
+  --color-layer:         #F1F5F9;
+  --color-layer-hover:   #E2E8F0;
+  --color-border:        #E2E8F0;
+  --color-border-strong: #CBD5E1;
+
+  --color-teal:          #06B6D4;
+  --color-teal-hover:    #0891B2;
+  --color-teal-glow:     rgba(6,182,212,0.12);
+
+  --color-frost:         #0F172A;
+  --color-mist:          #64748B;
+  --color-mist-light:    #94A3B8;
+
+  --color-emerald:       #10B981;
+  --color-emerald-glow:  rgba(16,185,129,0.10);
+  --color-crimson:       #EF4444;
+  --color-crimson-glow:  rgba(239,68,68,0.10);
+  --color-amber:         #F59E0B;
+  --color-amber-glow:    rgba(245,158,11,0.10);
+
+  --sidebar-w:         260px;
+  --sidebar-collapsed: 72px;
+}
