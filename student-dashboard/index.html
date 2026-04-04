@@ -90,6 +90,7 @@
             </header>
             <!-- Dashboard Content -->
             <main class="content" id="page-dashboard">
+                <!-- Top Row: Gauges + Metric Cards -->
                 <div class="top-row">
                     <!-- Speedometer Gauges -->
                     <div class="gauge-panel card">
@@ -154,6 +155,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Bottom Row: Active Assignments + Recent Submissions -->
                 <div class="bottom-row">
                     <!-- Active Assignments -->
                     <div class="card assignments-panel">
@@ -289,52 +291,7 @@
                 </div>
             </main>
 
-
         </div>
-        <div class="logo-icon">
-            <i data-lucide="terminal" class="icon-void icon-sm"></i>
-        </div>
-        <span class="logo-text sidebar-label">Verdikt</span>
-    </div>
-
-    <nav class="sidebar-nav">
-        <a href="#dashboard" class="nav-item active" data-page="dashboard">
-            <i data-lucide="layout-dashboard" class="nav-icon"></i>
-            <span class="sidebar-label">Dashboard</span>
-        </a>
-
-        <a href="#assignments" class="nav-item" data-page="assignments">
-            <i data-lucide="book-open" class="nav-icon"></i>
-            <span class="sidebar-label">Assignments</span>
-        </a>
-
-        <a href="#editor" class="nav-item" data-page="editor">
-            <i data-lucide="terminal" class="nav-icon"></i>
-            <span class="sidebar-label">Code Editor</span>
-        </a>
-
-        <a href="#history" class="nav-item" data-page="history">
-            <i data-lucide="history" class="nav-icon"></i>
-            <span class="sidebar-label">My Submissions</span>
-        </a>
-    </nav>
-
-    <div class="sidebar-footer">
-        <div class="user-info sidebar-label" id="user-info">
-            <p class="user-name">Alex Rivera</p>
-            <p class="user-role">student</p>
-        </div>
-
-        <button class="logout-btn">
-            <i data-lucide="log-out" class="nav-icon"></i>
-            <span class="sidebar-label">Sign Out</span>
-        </button>
-
-        <button class="collapse-btn" id="collapse-btn">
-            <i data-lucide="chevron-left" id="collapse-icon" class="icon-sm"></i>
-        </button>
-    </div>
-    </aside>
     </div>
 
     <script src="script.js"></script>
