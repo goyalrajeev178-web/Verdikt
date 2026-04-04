@@ -359,3 +359,59 @@
           </table>
         </div>
       </main>
+      
+      <!-- ════ PAGE: Submission Review ════ -->
+      <main class="content hidden" id="page-sub-review">
+        <button class="back-btn" onclick="showPage('submissions')">
+          <i data-lucide="arrow-left" class="icon-xs"></i> Back
+        </button>
+        <div class="review-grid">
+          <!-- Code Panel -->
+          <div class="card overflow-hidden review-code-card">
+            <div class="review-code-header">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <span class="review-code-title">Submitted Code</span>
+                <span class="review-lang-tag" id="review-lang-tag">python</span>
+              </div>
+              <button class="icon-btn" onclick="navigator.clipboard?.writeText(document.getElementById('review-code-pre').textContent)">
+                <i data-lucide="copy"></i> Copy
+              </button>
+            </div>
+            <div class="review-code-wrap">
+              <div class="review-line-nums" id="review-line-nums"></div>
+              <pre class="review-code-pre" id="review-code-pre"></pre>
+            </div>
+          </div>
+
+          <!-- Right Sidebar -->
+          <div class="review-sidebar">
+            <!-- Score -->
+            <div class="card review-card">
+              <h3 class="review-card-title">Results</h3>
+              <div id="review-score-section"></div>
+            </div>
+            <!-- Test Results -->
+            <div class="card review-card">
+              <h3 class="review-card-title">
+                <i data-lucide="eye" class="icon-xs icon-teal"></i> Test Results
+              </h3>
+              <div id="review-test-results"></div>
+            </div>
+            <!-- Integrity Score -->
+            <div class="card review-card">
+              <h3 class="review-card-title">
+                <i data-lucide="shield" class="icon-xs" id="review-shield-icon"></i> Integrity Score
+              </h3>
+              <div id="review-integrity"></div>
+            </div>
+            <!-- Behavior Flags -->
+            <div class="card review-card" id="review-flags-card" style="display:none;border-color:rgba(239,68,68,0.2);">
+              <h3 class="review-card-title">
+                <i data-lucide="alert-triangle" class="icon-xs icon-crimson"></i>
+                Behavior Flags (<span id="review-flag-count">0</span>)
+              </h3>
+              <div id="review-flags-list"></div>
+            </div>
+          </div>
+        </div>
+      </main>
