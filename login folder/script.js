@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // ── Success → redirect ────────────────────────────────────────────
             if (currentRole === 'teacher') {
-                window.location.href = 'teacher-dashboard.html';
+                window.location.href = '../teacher-dashboard.html/';
             } else {
-                window.location.href = 'student-dashboard.html';
+                window.location.href = '../student-dashboard.html/';
             }
 
         } catch (err) {
