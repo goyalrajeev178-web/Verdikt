@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
-
-
-    <script src ="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="login-layout">
         <div class="left-panel">
-            <div class="bg-gradiant"></div>
-            <div class="radial-gradiant"></div>
+            <div class="bg-gradient"></div>
+            <div class="radial-gradient"></div>
         <div class="left-content">
             <div class="logo-container animate-fade-in-down">
                 <div class="logo-icon">
@@ -25,7 +23,7 @@
 
             <!--Hero section-->
         <div class="hero-section">
-            <h1 class="hero-title animated-fade-in-up" style="animation-delay: 0.2s;">Code evaluation
+            <h1 class="hero-title animate-fade-in-up" style="animation-delay: 0.2s;">Code evaluation
                 <br/>
             <span class="text-teal">With integrity</span>
             </h1>
@@ -88,6 +86,7 @@
         <p class="welcome-desc">Sign in to your account to continue</p>
             <!-- Role Toggle -->
         <div class="role-tabs" id="role-toggle">
+          <div class="tab-indicator"></div> 
           <button data-role="student" class="tab-btn active">
             <i data-lucide="graduation-cap" class="tab-icon"></i>
             Student
@@ -105,6 +104,7 @@
               type="email"
               id="email"
               placeholder="you@university.edu"
+              required
             />
           </div>
 
@@ -115,6 +115,7 @@
                 type="password"
                 id="password"
                 placeholder="Enter your password"
+                required;
               />
               <button
                 type="button"
@@ -156,5 +157,6 @@
       </div>
     </div>
     </div>
+    <script src ="script.js"></script>
 </body>
 </html>
