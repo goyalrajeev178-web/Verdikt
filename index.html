@@ -257,3 +257,77 @@
           </table>
         </div>
       </main>
+         <!-- ════ PAGE: Create Assignment ════ -->
+      <main class="content hidden" id="page-create">
+        <!-- Step Indicator -->
+        <div class="create-steps" id="create-steps">
+          <!-- rendered by JS -->
+        </div>
+
+        <!-- Step 1: Details -->
+        <div class="create-step" id="create-step-1">
+          <div class="form-group">
+            <label class="form-label">Assignment Title</label>
+            <input type="text" id="create-title" class="form-input" placeholder="e.g., Binary Search Implementation" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="create-desc" class="form-textarea" rows="8" placeholder="Describe the problem statement, requirements, and constraints..."></textarea>
+          </div>
+          <div class="create-actions">
+            <span></span>
+            <button class="create-next-btn" onclick="createGoStep(2)">Next: Languages &amp; Limits</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Languages & Limits -->
+        <div class="create-step hidden" id="create-step-2">
+          <div class="form-group">
+            <label class="form-label">Allowed Languages</label>
+            <div class="lang-toggle-group" id="lang-toggles"></div>
+          </div>
+          <div class="create-grid-3">
+            <div class="form-group">
+              <label class="form-label">Time Limit (min)</label>
+              <input type="number" id="create-timelimit" class="form-input" value="45" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Max Attempts</label>
+              <input type="number" id="create-maxattempts" class="form-input" value="3" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Deadline</label>
+              <input type="datetime-local" id="create-deadline" class="form-input" />
+            </div>
+          </div>
+          <div class="create-actions">
+            <button class="create-back-btn" onclick="createGoStep(1)">Back</button>
+            <button class="create-next-btn" onclick="createGoStep(3)">Next: Test Cases</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Test Cases -->
+        <div class="create-step hidden" id="create-step-3">
+          <div class="form-section-header">
+            <div>
+              <h3 class="form-section-title">Test Cases</h3>
+              <p class="form-section-sub">Define input/output pairs for automated grading</p>
+            </div>
+            <button class="create-add-tc-btn" onclick="addTestCase()">
+              <i data-lucide="plus" class="icon-xs"></i> Add Test Case
+            </button>
+          </div>
+          <div id="test-cases-list"></div>
+          <div class="create-actions">
+            <button class="create-back-btn" onclick="createGoStep(2)">Back</button>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="create-draft-btn" onclick="saveAssignment('draft')">
+                <i data-lucide="save" class="icon-xs"></i> Save Draft
+              </button>
+              <button class="create-publish-btn" onclick="saveAssignment('active')">
+                <i data-lucide="rocket" class="icon-xs"></i> Publish
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
