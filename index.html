@@ -207,3 +207,30 @@
         </div>
         <div class="assignments-grid" id="assignments-grid"></div>
       </main>
+ <!-- ════ PAGE: Plagiarism Logs ════ -->
+      <main class="content hidden" id="page-plagiarism">
+        <!-- Summary Cards -->
+        <div class="plag-summary-cards" id="plag-summary"></div>
+        <!-- Filters -->
+        <div class="filter-bar" id="plag-filters">
+          <i data-lucide="filter" class="filter-icon"></i>
+          <!-- buttons rendered by JS -->
+        </div>
+        <!-- Table -->
+        <div class="card overflow-hidden">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Assignment</th>
+                <th>Risk Level</th>
+                <th>Flags</th>
+                <th>Flag Types</th>
+                <th>Detected</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="plag-table-body"></tbody>
+          </table>
+        </div>
+      </main>
