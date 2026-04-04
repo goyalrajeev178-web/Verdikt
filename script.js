@@ -298,3 +298,127 @@ function renderAssignmentsPage() {
 
   lucide.createIcons();
 }
+function openAssignmentDetail(assignmentId) {
+  const a = mockAssignments.find(x => x.id === assignmentId);
+  if (!a) return;
+
+  const isPast = new Date(a.deadline) < new Date();
+  const deadlineStr = isPast
+    ? 'Closed'
+    : new Date(a.deadline).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric'
+      });
+
+  const pillClass =
+    a.status === 'active' ? 'pill-active' :
+    a.status === 'draft' ? 'pill-draft' : 'pill-closed';
+
+  document.getElementById('detail-info').innerHTML = `
+    <p class="detail-desc">${a.description}</p>
+
+    <div class="detail-meta-row">
+      <span><i data-lucide="clock"></i> ${a.timeLimitMinutes || 45} min</span>
+      <span><i data-lucide="clipboard-list"></i> ${a.totalSubmissions} submissions</span>
+
+      <span style="${a.flaggedSubmissions > 0 ? 'color:var(--color-crimson)' : ''}">
+        <i data-lucide="shield"></i> ${a.flaggedSubmissions} flagged
+      </span>
+
+      <span class="status-pill ${pillClass}">${a.status}</span>
+    </div>
+
+    <div class="detail-lang-tags">
+      ${a.languages.map(l => `<span class="detail-lang-tag">${l}</span>`).join('')}
+    </div>
+  `;
+
+  const subs = mockSubmissions.filter(s => s.assignmentId === assignmentId);
+
+  if (subs.length === 0) {
+    document.getElementById('detail-sub-table').innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align:center;padding:3rem;color:var(--color-mist);">
+          No submissions yet
+        </td>
+      </tr>
+    `;
+  } else {
+    document.getElementById('detail-sub-table').innerHTML = subs.map(sub => {
+      const dateStr = new Date(sub.submittedAt || Date.now())
+        .toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+      const plagColor =
+        sub.plagiarismScore >= 50 ? 'var(--color-crimson)' :
+        sub.plagiarismScore >= 25 ? 'var(--color-amber)' :
+        'var(--color-emerald)';
+
+      return `
+        <tr style="cursor:pointer;" onclick="openReview('${sub.id}')">
+          <td>
+            <div style="display:flex;align-items:center;gap:0.625rem;">
+              <div style="width:1.75rem;height:1.75rem;border-radius:0.375rem;background:var(--color-teal-glow);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:0.75rem;font-weight:600;color:var(--color-teal);">
+                  ${sub.studentName.charAt(0)}
+                </span>
+              </div>
+              <span style="font-size:0.875rem;font-weight:500;color:var(--color-frost);">
+                ${sub.studentName}
+              </span>
+            </div>
+          </td>
+
+          <td>
+            <span style="font-size:0.75rem;font-family:'Geist Mono',monospace;color:var(--color-mist-light);">
+              ${sub.language}
+            </span>
+          </td>
+
+          <td>${statusBadgeHTML(sub.status)}</td>
+
+          <td>
+            <span style="font-size:0.875rem;font-family:'Geist Mono',monospace;${scoreClass(sub.score)}">
+              ${sub.score}%
+            </span>
+          </td>
+
+          <td>
+            <div class="risk-bar-wrap">
+              <div class="risk-bar-bg">
+                <div class="risk-bar-fill"
+                     style="width:${sub.plagiarismScore}%;background:${plagColor};">
+                </div>
+              </div>
+              <span class="risk-num">${sub.plagiarismScore}%</span>
+            </div>
+          </td>
+
+          <td>
+            <span style="font-size:0.75rem;font-family:'Geist Mono',monospace;color:var(--color-mist);">
+              ${sub.timeSpentMinutes}m
+            </span>
+          </td>
+
+          <td>
+            <span style="font-size:0.75rem;color:var(--color-mist);">
+              ${dateStr}
+            </span>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  showPage('asgn-detail');
+
+  document.getElementById('header-title').textContent = a.title;
+  document.getElementById('header-subtitle').textContent =
+    `${a.totalSubmissions} submissions`;
+
+  lucide.createIcons();
+}
