@@ -4,30 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+
     <div class="login-layout">
         <div class="left-panel">
-            <div class="bg-gradiant"></div>
-            <div class="radial-gradiant"></div>
-        </div>
+            <div class="bg-gradient"></div>
+            <div class="radial-gradient"></div>
         <div class="left-content">
             <div class="logo-container animate-fade-in-down">
                 <div class="logo-icon">
                     <i data-lucide="terminal" class="icon-white"></i>
                 </div>
-                <span class="logo-text">verdikt</span>
+                <span class="logo-text">Verdikt</span>
             </div>
+
+            <!--Hero section-->
         <div class="hero-section">
-            <h1 class="hero-title animated-fade-in-up" style="animation-delay: 0.2s;">Code evaluation
-                <br>
+            <h1 class="hero-title animate-fade-in-up" style="animation-delay: 0.2s;">Code evaluation
+                <br/>
             <span class="text-teal">With integrity</span>
             </h1>
             <p class = "hero-desc animated-fade-in-up" style="animation-delay: 0.35s;">Monitor submission in real-time. Detect anomalies before they become problems. 
                 Built for educators who demand transparency.
             </p>
+               <!-- Feature Pills -->
+          <div class="feature-list">
+            <!-- Feature 1 -->
+            <div class="feature-pill animate-fade-in-left" style="animation-delay: 0.6s;">
+              <div class="feature-icon-wrapper">
+                <i data-lucide="code-2" class="feature-icon"></i>
+              </div>
+              <div>
+                <p class="feature-title">Monaco Editor</p>
+                <p class="feature-desc">Professional code editing with IntelliSense</p>
+              </div>
+            </div>
+             <!-- Feature 2 -->
+            <div class="feature-pill animate-fade-in-left" style="animation-delay: 0.7s;">
+              <div class="feature-icon-wrapper">
+                <i data-lucide="shield" class="feature-icon"></i>
+              </div>
+              <div>
+                <p class="feature-title">Anti-Cheat</p>
+                <p class="feature-desc">Real-time integrity monitoring system</p>
+              </div>
+            </div>
+              <!-- Feature 3 -->
+            <div class="feature-pill animate-fade-in-left" style="animation-delay: 0.8s;">
+              <div class="feature-icon-wrapper">
+                <i data-lucide="activity" class="feature-icon"></i>
+              </div>
+              <div>
+                <p class="feature-title">Analytics</p>
+                <p class="feature-desc">Deep behavioral pattern analysis</p>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
+             <!-- Footer -->
+        <p class="footer-text animate-fade-in" style="animation-delay: 1s;">
+          Verdikt v1.0 — Academic Integrity Platform
+        </p>
+      </div>
     </div>
+
+    <!-- Right Panel — Login Form -->
+    <div class="right-panel">
+      <div class="login-box animate-scale-in">
+        
+        <!-- Mobile Logo -->
+        <div class="mobile-logo">
+          <div class="logo-icon">
+            <i data-lucide="terminal" class="icon-white"></i>
+          </div>
+          <span class="logo-text">Verdikt</span>
+        </div>
+        <h2 class="welcome-title">Welcome back</h2>
+        <p class="welcome-desc">Sign in to your account to continue</p>
+            <!-- Role Toggle -->
+        <div class="role-tabs" id="role-toggle">
+          <div class="tab-indicator"></div> 
+          <button data-role="student" class="tab-btn active">
+            <i data-lucide="graduation-cap" class="tab-icon"></i>
+            Student
+          </button>
+          <button data-role="teacher" class="tab-btn">
+            <i data-lucide="book-open" class="tab-icon"></i>
+            Teacher
+          </button>
+        </div>
+      <!--Form -->
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="you@university.edu"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required;
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                class="toggle-password"
+              >
+                <i data-lucide="eye" id="eye-icon" class="icon-small"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <label class="remember-me">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <button type="button" class="forgot-password">
+              Forgot password?
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="submit-btn"
+          >
+            <span id="btn-text" class="btn-text-content">
+              Sign In
+              <i data-lucide="arrow-right" class="icon-small"></i>
+            </span>
+            <div id="loader" class="loader hidden"></div>
+          </button>
+        </form>
+
+        <p class="security-text">
+          Protected by Verdikt Anti-Cheat System
+        </p>
+
+      </div>
+    </div>
+    </div>
+    <script type="module" src ="script.js"></script>
 </body>
 </html>
