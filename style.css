@@ -1097,3 +1097,144 @@ a { text-decoration: none; color: inherit; }
 
 .tc-textarea:focus { outline: none; border-color: var(--color-teal); }
 .tc-textarea::placeholder { color: var(--color-mist); }
+/* ── Assignment Detail ───────────────────────────────────── */
+.detail-info-card { padding: 1.5rem 2rem; }
+.detail-desc { font-size: 0.875rem; color: var(--color-mist); line-height: 1.65; margin-bottom: 1rem; max-width: 680px; }
+.detail-meta-row { display: flex; align-items: center; gap: 1.5rem; font-size: 0.8125rem; color: var(--color-mist); flex-wrap: wrap; margin-bottom: 0.75rem; }
+.detail-meta-row span { display: flex; align-items: center; gap: 0.375rem; }
+.detail-meta-row i { width: 0.875rem; height: 0.875rem; }
+.detail-lang-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+
+.detail-lang-tag {
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  background: var(--color-layer);
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-family: 'Geist Mono', monospace;
+  color: var(--color-frost);
+}
+
+/* ── Submission Review ───────────────────────────────────── */
+.review-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) { .review-grid { grid-template-columns: 1fr; } }
+
+.review-code-card { display: flex; flex-direction: column; }
+
+.review-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(241,245,249,0.4);
+}
+
+.review-code-title { font-size: 0.875rem; font-weight: 600; color: var(--color-frost); }
+
+.review-lang-tag {
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  background: var(--color-layer);
+  font-size: 0.75rem;
+  font-family: 'Geist Mono', monospace;
+  color: var(--color-mist-light);
+}
+
+.review-code-wrap {
+  display: flex;
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.review-line-nums {
+  width: 3rem;
+  flex-shrink: 0;
+  padding: 1.5rem 0;
+  background: rgba(241,245,249,0.4);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-line-nums span {
+  font-size: 0.6875rem;
+  font-family: 'Geist Mono', monospace;
+  color: rgba(100,116,139,0.4);
+  line-height: 1.6em;
+  height: 1.6em;
+}
+
+.review-code-pre {
+  flex: 1;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  font-family: 'Geist Mono', monospace;
+  color: var(--color-frost);
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.review-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+
+.review-card { padding: 1.25rem; }
+.review-card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-frost);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.review-score-num { font-size: 2.5rem; font-weight: 700; font-family: 'Geist Mono', monospace; letter-spacing: -0.04em; }
+
+.review-meta-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; padding: 0.375rem 0; }
+.review-meta-row:not(:last-child) { border-bottom: 1px solid var(--color-border); }
+.review-meta-key   { color: var(--color-mist); }
+.review-meta-value { font-family: 'Geist Mono', monospace; color: var(--color-frost); }
+
+.review-test-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  margin-bottom: 0.375rem;
+}
+
+.review-test-row.pass { background: rgba(16,185,129,0.08); }
+.review-test-row.fail { background: rgba(239,68,68,0.08); }
+
+.review-test-row i  { width: 0.875rem; height: 0.875rem; }
+.review-test-label  { display: flex; align-items: center; gap: 0.5rem; }
+.review-test-time   { font-family: 'Geist Mono', monospace; font-size: 0.75rem; color: var(--color-mist); }
+
+.review-plag-bar-bg { height: 0.75rem; border-radius: 9999px; background: var(--color-layer); overflow: hidden; margin-bottom: 0.5rem; }
+.review-plag-bar-fill { height: 100%; border-radius: 9999px; transition: width 0.8s ease; }
+.review-plag-score { font-size: 1.5rem; font-weight: 700; font-family: 'Geist Mono', monospace; }
+
+.flag-item {
+  background: rgba(241,245,249,0.5);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.flag-item-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
+.flag-item-title  { font-size: 0.8125rem; font-weight: 500; color: var(--color-frost); display: flex; align-items: center; gap: 0.375rem; }
+.flag-item-sev    { font-size: 0.625rem; font-family: 'Geist Mono', monospace; padding: 0.125rem 0.5rem; border-radius: 9999px; text-transform: uppercase; }
+.flag-item-desc   { font-size: 0.75rem; color: var(--color-mist); }
+.flag-item-time   { font-size: 0.625rem; font-family: 'Geist Mono', monospace; color: rgba(100,116,139,0.6); margin-top: 0.25rem; }
