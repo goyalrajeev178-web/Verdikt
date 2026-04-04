@@ -25,3 +25,29 @@
   --sidebar-w:         260px;
   --sidebar-collapsed: 72px;
 }
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, h4, p, a, table, th, td { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--color-void);
+  color: var(--color-frost);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ── App Layout ─────────────────────────────────────────── */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
