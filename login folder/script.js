@@ -19,8 +19,8 @@ const auth = getAuth(app);
 // ── Allowed accounts ─────────────────────────────────────────────────────────
 // These must match exactly what you created in Firebase Console → Authentication
 const ALLOWED_ACCOUNTS = {
-    student: "student@verdikt.com",   // ← change to your student's email
-    teacher: "teacher@verdikt.com"    // ← change to your teacher's email
+    student: "student@verdikt.com",   
+    teacher: "teacher@verdikt.com"    
 };
 
 // ── Init Lucide ───────────────────────────────────────────────────────────────
